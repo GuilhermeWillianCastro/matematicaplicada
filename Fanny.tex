@@ -1,0 +1,116 @@
+\documentclass[]{article}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[brazil]{babel}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{graphicx}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+\pagestyle{fancy}
+\title{
+	Matemática Aplicada 2:
+	\paragraph{}
+	\large \underline {Uma análise vetorial sobre a habilidade "Cabos de Aço"}
+	\linebreak \underline{de Fanny em Mobile Legends} 
+	
+\author{Guilherme Willian Castro}
+\date{15 de junho de 2023}
+}
+\begin{document}
+	\maketitle
+	\pagebreak
+	\begin{center}
+		\vspace{0.9cm}
+		\textbf{Notas do Autor}
+	\end{center}
+	Este artigo apreseta uma abordagem matemática utilizando cálculo vetorial na demonstração da 2ª habilidade de Fanny no jogo Mobile Legends, a fim de gastar meu tempo vazio. O artigo foi desenvolvido durante as versões 1.7.82 e 1.7.84.
+	
+	\pagebreak
+	
+	\tableofcontents
+	
+	\pagebreak
+	
+	\section{Introdução}
+	\paragraph{}
+	Internacionalmente conhecido, Mobile Legends é um popular jogo online que segue o formato tradicional do MOBA\footnote[1]{do inglês "Multiplayer Online Battle Arena"}, no qual dois times de 5 jogadores competem para destruir a base inimiga enquanto defendem a própria.
+	
+	A jogabilidade gira em torno da estratégia e do trabalho em equipe, com a execução de táticas coordenadas de ataque e defesa, que contribuem para o progresso do time em busca da vitória. Cada personagem jogável possui habilidades únicas que desempenham papéis específicos durante o jogo, oferecendo vantagens em diferentes momentos, seja dominando áreas do mapa ou reunindo recursos para a equipe. Os personagens são divididos nas classes:
+	\paragraph{Suporte:}
+	Os suportes fornecem utilidade e assistência para sua equipe, muitas vezes curando, protegendo ou potencializando as habilidades de aliados, além de fornecer controle de multidão e visão. ($e.g$ Franco, Rafaela...)
+	\paragraph{Assassinos:}
+	Os assassinos são personagens ágeis e orientados para o dano explosivo, com foco na eliminação rápida de alvos de alta prioridade e na interrupção do time inimigo. ($e.g.$ Saber, Hanabi...)
+	\paragraph{Magos:}
+	Os magos são personagens lançadores de feitiços que se destacam em causar dano mágico à distância, muitas vezes possuindo controle de multidão e habilidades de área de efeito. ($e.g.$ Cyclops, Kagura)
+	\paragraph{Atiradores:}
+	Atiradores são atacantes à distância que dependem de ataques básico para causar dano físico sustentado, normalmente com alta velocidade de ataque e dano escalonado. ($e.g.$ Layla, Lesley...)
+	\paragraph{Lutadores:}
+	Lutadores são heróis versáteis que possuem um equilíbrio entre ataque e defesa. Eles têm boa sustentação e podem causar danos significativos em combate corpo a corpo, tornando-os adequados para enfrentar inimigos e interromper a equipe adversária. ($e.g.$ Freya, Paquito...)
+	\paragraph{Tanques:}
+	Os Tanques são personagens duráveis com alta saúde e habilidades defensivas, especializados em absorver danos e iniciar lutas em equipe. ($e.g.$ Alucard, Chou...)
+	\paragraph{}
+	Os personagens jogáveis possuem 3 ou 4 habilidades próprias que obedecem a um sistema de progresso \--- com seus próprios níveis de 1 a 5 \--- que utiliza Pontos de Experiência para desbloquear novas ou melhorá-las. Os jogadores possuem um total de 15 níveis de experiência progredir e chegar aos valores máximos de atributos \--- de Ataque ou Defesa Físico e Mágico, Velocidade de Movimento, etc. \--- providos pelas habilidades.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{minlv}
+		\label{fig:minlv}
+		\includegraphics[width=0.7\linewidth]{maxlv}
+		\caption{Nível 1 e 15 representados pelo Nível de Experiência e habilidades de Miya}
+		\label{fig:maxlv}
+	\end{figure}
+	
+	Ao início da partida, todos os personagens iniciam o jogo no nível 1, e possuem a opção de selecionar uma habilidade para garantir uma vantagem. Há 3 opções que compõem os requisitos para a execução de habilidades individuais de cada personagem:
+	\begin{itemize}
+		\item [a)]Custo de Pontos de Magia;
+		\item [b)]Tempo de espera (Cooldown);
+		\item [c)]Combinação de a) e b);
+	\end{itemize}
+	\paragraph{}
+	Na imagem 1, a 3ª habilidade disponível chama-se Ultimate, caracterizada pelo custo maior de a) ou b), e sempre desbloqueada sempre a partir do nível 4.
+	
+	\section{Flying Sword Fanny}
+	\paragraph{}
+	Fanny é uma personagem jogável da classe Assassino, e destaca-se pela agilidade no movimento pelo mapa, devido a sua habilidade n°2: Cabos de Aço.
+	
+	Para utilizar Cabos de Aço, é necessário obedecer ao sistema de habilidades de Fanny, descrito no fluxograma abaixo.
+	
+	\section{Mecânica Vetorial de Cabos de Aço}
+	\paragraph{}
+	Durante a partida, ao pressionar o ícone para executar a habilidade 2 de Fanny, um cursor com formato de seta é criado a partir da personagem, na direção que o cursor do analógico virtual na tela do jogo indica.
+	
+	Caso o jogador possua pontos de magia solte o analógico, imediatamente Fanny lançará um cabo de aço na direção indicada pelo cursor, então, a partir deste momento uma sequência de funcionamento é iniciada, expressada por [3].
+	\begin{center}
+	\usetikzlibrary{shapes.geometric, arrows}
+	\tikzstyle{startstop} = [rectangle, rounded corners, minimum width = 3cm, minimum height = 1cm, text centered, draw=black, fill=red!30]
+	\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height =1cm, text centered, draw=black, fill=blue!30]
+	\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height =1cm, text centered, draw=black, fill=orange!30]
+	\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height =1cm, text centered, draw=black, fill=green!30]
+	\tikzstyle{arrow} = [thick, ->, >=stealth]
+	
+	\begin{tikzpicture}[node distance=3cm][h]
+	\node(start) [startstop, yshift=2cm] {Habilidade 2};
+	\node(dec1) [decision, below of=start] {Mana $\leq$ 2};
+		
+	\node(in1) [io, below of=dec1] {Exibir alvo};
+	%\node(pro1) [process, below of=in1] {Cancela execução da habilidade};%
+	\node(dec2) [decision, below of=in1] {Lança cabo de aço};
+	\node(dec3) [decision, below of=dec2, yshift=-1cm] {Colisão};
+	\node(in2) [io, right of=dec3, xshift=4cm] {Agrega};
+	
+	\node (stop)[startstop, below of=dec3, yshift=-4cm] {Stop};
+	
+ 	\draw [arrow] (start) --(dec1);
+ 	%\draw [arrow] (in1) --(dec2);
+ 	%\draw [arrow] (dec3)-- node[anchor=north] {Sim} (in2);
+ 	%\draw [arrow] (dec2) -- (dec3);
+ 	%\draw [arrow] (dec3) -- node[anchor=west] {Não} (stop);
+ 	
+	\end{tikzpicture}
+	\end{center}
+	
+	\pagebreak
+	
+	\section{-}
+	
+\end{document}
