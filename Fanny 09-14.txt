@@ -1,0 +1,79 @@
+\documentclass[portrait]{ppgcaposter}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{center}
+%% TITLE
+\textbf{\bf\veryHuge\color{Black}Matemática Aplicada I\\[1.5cm]}
+
+%% AUTHORS
+
+\huge Guilherme Willian Castro\\[0.3cm]
+\Large {castro.ethng@gmail.com}
+
+ \end{center}
+
+\vspace{2cm}
+
+%%%% Retire os comentários se houver RESUMO %%%%
+%%%%
+% \color{Navy}
+% \begin{abstract}
+
+%   Te ancillae contentiones vix, ad partiendo patrioque inciderint
+%   eum. Mea porro regione ex. Case iuvaret ocurreret quo at, legere
+%   malorum indoctum cu his. Eros ubique mel in. At duo partem vidisse
+%   intellegam. Equidem detraxit has ea. Phasellus imperdiet, tortor
+%   vitae congue bibendum, felis enim sagittis lorem, et volutpat ante
+%   orci sagittis mi. Morbi rutrum laoreet semper. Morbi accumsan enim
+%   nec tortor consectetur non commodo nisi sollicitudin. Proin
+%   sollicitudin. Pellentesque eget orci eros. Fusce ultricies, tellus
+%   et pellentesque fringilla, ante massa luctus libero, quis tristique
+%   purus urna nec nibh.
+  
+% \end{abstract}
+
+% \vspace{1cm}
+
+% As FONTES podem ser aumentadas para
+% \large \Large \LARGE \huge \Huge \veryHuge \VeryHuge \VERYHuge
+
+ \Large
+
+\begin{multicols}{2} % begin two columns
+
+  \color{black}
+  
+\section*{Resumo}
+Este artigo apresenta uma análise vetorial sobre a habilidade "Cabos de Aço" da personagem Fanny do jogo Mobile Legends, para fins educativos.
+\section*{Introdução}
+Mobile Legends é um popular jogo online de MOBA lançado pela Shangai Moonton Technology em 2016. Nele, dois times de 5 jogadores competem para destruir a base inimiga, usando estratégia e trabalho em equipe. Cada jogador controla um campeão com habilidades únicas e papéis específicos. A campeã Fanny é uma personagem ímpar por sua habilidade "Cabos de Aço", que utiliza a regra do paralelogramo de álgebra vetorial para ser executada.
+\section{Metodologia}
+
+Como maneira de sistematizar "Cabos de Aço", consideremos duas ocasiões ao executar a habilidade: 
+(a) a extremidade mais longe do cabo lançado não toca em objeto algum; e (b) a extremidade mais longe do cabo lançado toca em um objeto com superfície passível de colisão.
+%\begin{tikzpicture}
+\begin{center}
+\begin{tikzpicture}
+\filldraw[color=black!60, fill=white!5, very thick](-1,0) circle (6);
+\draw (0,0) -- (5,0)
+\draw[color=black, thick, dotted] (0,0) -- (5,1);
+\begin{scope}[line join=miter]
+    \node at (0,1) {$P$};
+    \node at (3,1) {$r$};
+    \node at (6,1) {$P_{k}$};
+    \fill (5,1) circle (7pt);
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+%\end{tikzpicture}
+%%\begin{center}\vspace{1cm}
+%%\includegraphics[width=0.5\linewidth]{lorem.png}
+%%\captionof{figure}{\color{Green} Lorem.}
+%%\end{center}\vspace{1cm}
+
+O ponto $P$($x_{0},y_{0}$) descreve a posição de Fanny no plano $\mathbb{R^2}$ e uma circunferência $C$ de raio $r$ e centro em $P$, que complementado pelo ponto $P_{k}$ que intersecta a borda de $C$ descreve o comprimento máximo dos $k$-ésimos cabos e sua área de detecção de objetos.
+Para (a), o lançamento de $k_{i}$ é direcionado pelo vetor $\Vec{PP_{k}}$ sem ação posterior. Para (b), $|\Vec{PK_{i}}|\leq r$ e, portanto, existe uma reta om colisão que intersecta a função %f($k_{1}$)=P+$t$($\Vec{PK_{i}}$)
+
+\end{document}
