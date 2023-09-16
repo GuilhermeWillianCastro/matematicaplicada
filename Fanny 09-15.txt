@@ -1,0 +1,32 @@
+\documentclass[portrait]{ppgcaposter}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\begin{document}
+\begin{center}
+\textbf{\bf\veryHuge\color{Black}Matemática Aplicada I\\[1.5cm]}
+\huge Guilherme Willian Castro\\[0.3cm]
+\Large {castro.ethng@gmail.com}
+\end{center}
+\vspace{2cm}
+\Large
+\begin{center}
+\LARGE{\textbf{Resumo}} \linebreak
+\LARGE {Este artigo apresenta uma análise vetorial sobre a habilidade "Cabos de Aço" da personagem Fanny do jogo Mobile Legends, para fins educativos.}
+\end{center}
+\begin{multicols}{2}
+\color{black}
+\section*{Introdução}
+Mobile Legends é um popular jogo online de MOBA lançado pela Shangai Moonton Technology em 2016. Nele, dois times de 5 jogadores competem para destruir a base inimiga, usando estratégia e trabalho em equipe. Cada jogador controla um campeão com habilidades únicas e papéis específicos. A campeã Fanny é uma personagem notável por sua agilidade pelo mapa do jogo com a habilidade "Cabos de Aço", que utiliza conceitos álgebra vetorial para ser executada.
+\section{Metodologia}
+
+Seja OXYZ um sistema de coordenadas de eixos ortogonais, $\alpha$ o plano do mapa percorrido pelos jogadores, tal que $\alpha // (xOy)$ é intersectado pela caixa de colisão dos objetos do mapa, que, quando projetados sobre $\alpha$, formam polígonos regulares em sua superfície. Para "Cabos de Aço", consideremos um segundo plano $\pi$, paralelo, à distância $c$ > $0$ do semi-eixo positivo $z$ de $\alpha$.
+
+%\begin{tikzpicture}    
+%\begin{center}\vspace{1cm}
+%\includegraphics[width=0.5\linewidth]{lorem.png}
+%\captionof{figure}{\color{Green} Lorem.}
+%\end{center}\vspace{1cm}
+
+ Diante disso, há duas ocasiões ao executar "Cabos de Aço": (a) a extremidade mais longe do cabo intersecta as bordas de algum objeto ou (b) a extremidade não intersecta objeto algum. A figura 1 exibe o ponto $P$($x_{0},y_{0}$) que descreve a posição de Fanny no plano $\pi$ e uma circunferência $C$ de raio $r$ e centro em $P$, que, complementado pelo ponto $P_{k}$ que intersecta a borda de $C$ descreve o comprimento máximo dos $k$-ésimos cabos e sua área de detecção de objetos.
+ Para (a), o lançamento de $k_{i}$ é direcionado pelo vetor $\Vec{PP_{k}}$ sem ação posterior. Para (b), $||\Vec{PP_{k}}||\leq r$ e, portanto, existe uma reta om colisão que intersecta a função %f($k_{1}$)=P+$t$($\Vec{PK_{i}}$)
+\end{document}
