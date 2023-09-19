@@ -1,0 +1,64 @@
+\documentclass[portrait]{ppgcaposter}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\begin{document}
+\begin{center}
+\textbf{\bf\veryHuge\color{Black}Matemática Aplicada I\\[1.5cm]}
+\huge Guilherme Willian Castro\\[0.3cm]
+\Large {castro.ethng@gmail.com}
+\end{center}
+\vspace{2cm}
+\Large
+\begin{center}
+\LARGE{\textbf{Resumo}} \linebreak
+\LARGE {Este artigo apresenta uma análise vetorial sobre a habilidade "Cabos de Aço" da personagem Fanny do jogo Mobile Legends, para fins educativos.}
+\end{center}
+\begin{multicols}{2}
+\color{black}
+\section*{Introdução}
+Mobile Legends é um popular jogo MOBA lançado pela Shangai Moonton Technology em 2016. Nele, dois times de 5 jogadores competem para destruir a base inimiga, usando estratégia e trabalho em equipe, onde cada jogador controla um campeão com habilidades únicas e papéis específicos. A campeã Fanny é uma personagem notável por sua agilidade pelo mapa do jogo com a habilidade "Cabos de Aço", que utiliza conceitos de álgebra vetorial para ser executada.
+\section{Metodologia}
+
+Considere o sistema de coordenadas OXYZ de eixos ortogonais. Um plano $\pi$ é definido como estando alinhado com os semi-eixos $+x$ e $+y$ localizado a uma distância $h$ de $z$, com sua normal orientada para $+z$. Adicionalmente, consideremos $Q_{j}$ polígonos regulares de altura $l$, onde $h \leq l$ distribuídos sobre $\pi$, donde as interseções das arestas $a_{j}$ dos polígonos com $\pi$ são definidas como a caixa de colisão dos objetos imóveis no mapa do jogo. Ou seja:
+
+\begin{center}
+    $Q_{i}=\{a_{3},a_{3},a_{3}...a_{n}|a_{i}:(x_{i},y_{i})\}$
+\end{center}
+
+%%DEFINIR O CONJUNTO Qn COMO CADA Q CONTÉM FINITAS ARESTAS, TODAS COM ALTURA L
+
+"Cabos de Aço" pode ser representada por uma circunferência $C$, de raio $r$ e centro $P_{0}$ em $\pi$. Os vetores ortogonais a $z$ $\vec{v_{1}},\vec{v_{2}},\vec{v_{3}}...\vec{v_{n}}$ com origem em $P_{0}$ e, orientados para algum ponto $p_{n}$ no infinito $xy$ são tais que $||v_{n}||\leq r$. Assim, o plano $x$O$y$ representa o "chão" do mapa percorrido pelos jogadores, enquanto $C$ e $\pi$ representam a área de atuação de "Cabos de Aço", em função das posições $P_{n}$ de Fanny em $\pi$, onde a direção de cada cabo $k_{1},k_{2},k_{3}...k_{n}$ é definida pelo analógico virtual, com comprimento limitado por $r$.
+
+\begin{center}\vspace{1cm}
+\includegraphics[width=0.5\linewidth]{yeet.png}
+\captionof{figure}{\color{Green} Lorem.}
+\end{center}\vspace{1cm}
+
+\begin{center}
+\begin{tikzpicture}
+\filldraw[color=black!60, fill=white!5, very thick](-1,0) circle (6);
+\draw (0,0) -- (5,0)
+\draw[color=black, thick, dotted] (0,0) -- (5,1);
+\begin{scope}[line join=miter]
+    \node at (0,1) {$P$};
+    \node at (3,1) {$r$};
+    \node at (6,1) {$P_{k}$};
+    \fill (5,1) circle (7pt);
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+%\end{tikzpicture}
+
+ Dessa maneira, há duas ocasiões para $k_{i}$ quando $Q_{i}\in C$: ou (a) a extremidade mais longe de $k_{i}$ não intersecta aresta alguma, ou (b) a extremidade mais longe intersecta uma aresta $a_{i}$ de $Q_{i}$. Para (a), tem-se uma visualização de $\vec{v_{i}}$, sem ação posterior. Para (b), temos o sistema
+ 
+ \begin{equation}
+     \left\{\begin{array}{ll}v_{x}{\vec{i}},v_{y}{\vec{j}},v_{k}{\vec{k}\\\x-z=1\end{array}\right
+ \end{equation}
+%$\vec{k_{i}}=v_{xi}{\vec{i}},v_{yi}{\vec{j}},v_{ki}{\vec{k}}$]\
+%$\vec{k_{i}} = a_{n}$
+%\linebreak
+%$P_{n}+t\cdot\vec{d_{j}}= P_{j}+t\cdot\vec{d_{k}}$
+resolvendo para t
+ 
