@@ -1,0 +1,484 @@
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	% openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão apenas no anverso (apenas frente). Oposto a twoside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	%french,				% idioma adicional para hifenização
+	%spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+	]{abntex2ppgsi}
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{pdfpages}     %para incluir pdf
+\usepackage{algorithm}			%para ilustrações do tipo algoritmo
+\usepackage{mdwlist}			%para itens com espaço padrão da abnt
+\usepackage[noend]{algpseudocode}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{placeins}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage[normalem]{ulem}
+\usepackage{listings}
+
+\lstset{
+  language=Python,            % Set the language
+  basicstyle=\ttfamily,       % Set the font style
+  numbers=left,               % Line numbers on the left
+  numberstyle=\tiny,          % Style of line numbers
+  frame=single,               % Frame around code
+  breaklines=true,            % Allow line breaks
+  captionpos=b                % Position of the caption
+}
+
+\geometry{
+    a4paper,
+    top=2.5cm,      % Adjust the top margin as needed
+    bottom=2.5cm,   % Adjust the bottom margin as needed
+    left=2cm,       % Adjust the left margin as needed
+    right=2cm,      % Adjust the right margin as needed
+}
+
+\usepackage{graphicx, array, blindtext}
+
+\usepackage{lipsum}
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}
+\instituicao{
+	UNIVERSIDADE
+	\par
+ 
+	\par
+	CURSO DE }
+
+\titulo{Desafio - <nome da disciplina>}
+\autor{\uppercase{Guilherme Willian Castro}}
+\local{São Leopoldo}
+\data{2023}
+
+\tipotrabalho{Dissertação (Mestrado)}
+\setlength{\parindent}{0.75cm}
+\setlength{\parskip}{0cm}  % tente também \onelineskip
+\renewcommand{\baselinestretch}{1.5}
+\makeindex
+  \clubpenalty10000
+  \widowpenalty10000
+  \displaywidowpenalty10000
+\begin{document}
+\frenchspacing 
+\imprimircapa
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+\begin{siglas}
+  \item[$VS$] Valor Semanal
+  \item[$VPIS$] Variação Percentual Individual Semanal
+  \item[$S_{i}$] Semana $i$
+  \item[$VPIM$] Variação Percentual Individual Mensal
+  \item[$VPCM$] Variação Percentual Conjunta Mensal
+  \item[$CV$] Coeficiente de Variação
+  \item[IBGE] Instituto Brasileiro de Geografia e Estatística
+  \item[IPCA] Índice de Preços ao Consumidor Amplo
+  \item[$VD$] Valor Devido
+  \item[$V_{n}$] Valor no momento $n$
+  \item[$J$] Juros (Conjunto)
+  \item[$j_{i}$] Juros (Elementos)
+  \item[$t$] Tempo
+  \item[$Ic$] Inflação Acumulada
+  \item[$VCD$] Valor Corrigido Devido
+\end{siglas}
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+\textual
+\chapter{O registro dos preços, identificando os produtos e os períodos anotados.}
+\paragraph{Dados de Identificação:}
+
+Estabelecimento: Carboni Supermercado Pinheiro. 
+\linebreak Endereço: Estr. Afonso Lourenço Mariante, 4550 - Lomba do Pinheiro, Porto Alegre - RS, 91787-260.
+\linebreak Produtos observados: Peito com osso, Paleta com osso, Coxão de dentro, Paleta sem osso Gold Beef e Músculo com osso.
+\linebreak Categoria de produtos (IPCA): Alimentação e bebidas.
+\linebreak Período de observação: Dias 1°, 08, 15, 22 e 29 de agosto de 2023.
+
+\begin{table}[ht]
+    \label{tab:teste}
+    \centering
+    \begin{tabular}{*{3}{m{0.48\textwidth}}}
+    \hline
+    \begin{center} \textbf{Semana 1} \vspace{0.2cm}\linebreak R\$18,99\linebreak 01/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{pe1.png}\end{center} \\
+    \hline
+    \begin{center} \textbf{Semana 2} \vspace{0.2cm}\linebreak R\$18,99\linebreak 08/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{pe2.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 3} \vspace{0.2cm}\linebreak R\$16,99\linebreak 15/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{pe3.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 4} \vspace{0.2cm}\linebreak R\$16,99\linebreak 22/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{pe4.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 5} \vspace{0.2cm}\linebreak R\$18,99\linebreak 29/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{pe5.png}\end{center} \\ 
+    \hline
+    \end{tabular}
+    \caption{Peito com osso}
+\end{table}
+
+
+\begin{table}[ht]
+    \label{tab:teste}
+    \centering
+    \begin{tabular}{*{3}{m{0.48\textwidth}}}
+    \hline
+    \begin{center} \textbf{Semana 1} \vspace{0.2cm}\linebreak R\$21,99\linebreak 01/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{pal1.png}\end{center} \\
+    \hline
+    \begin{center} \textbf{Semana 2} \vspace{0.2cm}\linebreak R\$19,99\linebreak 08/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{pal2.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 3} \vspace{0.2cm}\linebreak R\$19,99\linebreak 15/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{pal3.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 4} \vspace{0.2cm}\linebreak R\$19,99\linebreak 22/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{pal4.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 5} \vspace{0.2cm}\linebreak R\$18,99\linebreak 29/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{pal5.png}\end{center} \\ 
+    \hline
+    \end{tabular}
+    \caption{Paleta com osso}
+\end{table}
+
+\begin{table}[ht]
+    \label{tab:teste}
+    \centering
+    \begin{tabular}{*{3}{m{0.48\textwidth}}}
+    \hline
+    \begin{center} \textbf{Semana 1} \vspace{0.2cm}\linebreak R\$36,99\linebreak 01/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{cx1.png}\end{center} \\
+    \hline
+    \begin{center} \textbf{Semana 2} \vspace{0.2cm}\linebreak R\$29,99\linebreak 08/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{cx2.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 3} \vspace{0.2cm}\linebreak R\$29,99\linebreak 15/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{cx3.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 4} \vspace{0.2cm}\linebreak R\$29,99\linebreak 22/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{cx4.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 5} \vspace{0.2cm}\linebreak R\$29,99\linebreak 29/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{cx5.png}\end{center} \\ 
+    \hline
+    \end{tabular}
+    \caption{Coxão de dentro}
+\end{table}
+
+\begin{table}[ht]
+    \label{tab:teste}
+    \centering
+    \begin{tabular}{*{3}{m{0.48\textwidth}}}
+    \hline
+    \begin{center} \textbf{Semana 1} \vspace{0.2cm}\linebreak R\$26,99\linebreak 01/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{palgold1.png}\end{center} \\
+    \hline
+    \begin{center} \textbf{Semana 2} \vspace{0.2cm}\linebreak R\$25,99\linebreak 08/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{palgold2.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 3} \vspace{0.2cm}\linebreak R\$25,99\linebreak 15/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{palgold3.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 4} \vspace{0.2cm}\linebreak R\$25,99\linebreak 22/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{palgold4.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 5} \vspace{0.2cm}\linebreak R\$25,99\linebreak 29/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{palgold5.png}\end{center} \\ 
+    \hline
+    \end{tabular}
+    \caption{Paleta sem osso Gold Beef}
+\end{table}
+
+\begin{table}[ht]
+    \label{tab:teste}
+    \centering
+    \begin{tabular}{*{3}{m{0.48\textwidth}}}
+    \hline
+    \begin{center} \textbf{Semana 1} \vspace{0.2cm}\linebreak R\$17,99\linebreak 01/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{musc1.png}\end{center} \\
+    \hline
+    \begin{center} \textbf{Semana 2} \vspace{0.2cm}\linebreak R\$16,99\linebreak 08/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{musc2.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 3} \vspace{0.2cm}\linebreak R\$16,99\linebreak 15/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{musc3.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 4} \vspace{0.2cm}\linebreak R\$16,99\linebreak 22/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{musc4.png}\end{center} \\ 
+    \hline
+    \begin{center} \textbf{Semana 5} \vspace{0.2cm}\linebreak R\$15,99\linebreak 29/08/2023 \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{musc5.png}\end{center} \\ 
+    \hline
+    \end{tabular}
+    \caption{Músculo com osso}
+\end{table}
+\chapter{O cálculo da variação percentual por produto e da variação conjunta. Você verificou inflação ou deflação? O que justifica essa variação?}
+
+\paragraph{}
+Organizando os dados obtidos nas tabelas 1, 2, 3, 4 e 5, temos:
+\FloatBarrier
+\begin{table}[htbp]
+    
+    \begin{tabular}{p{2in} p{0.8in} p{0.8in} p{0.8in} p{0.8in} p{0.8in}} \hline
+    \centering Produto & \centering Semana 1 & \centering Semana 2 & \centering Semana 3 & \centering Semana 4 & Semana 5 \\ \hline
+    \centering Peito com osso & \centering R\$18,99 & \centering R\$18,99  & \centering R\$16,99 & \centering R\$16,99 & R\$18,99\\ 
+    \centering Paleta com osso & \centering  R\$21,99 & \centering R\$19,99 & \centering R\$19,99 & \centering R\$19,99 & R\$18,99\\ 
+    \centering Coxão de dentro & \centering R\$36,99 & \centering R\$29,99 & \centering R\$29,99 & \centering R\$29,99 & R\$29,99\\ 
+    \centering Paleta sem osso Gold Beef & \centering R\$26,99 & \centering R\$25,99 & \centering R\$25,99 & \centering R\$25,99 & R\$25,99\\ 
+    \centering Músculo com osso & \centering R\$17,99 & \centering R\$16,99 & \centering R\$16,99 & \centering R\$16,99 & R\$15,99\\ \hline
+        
+    \end{tabular}
+    \centering \caption{Preços dos produtos no mês de agosto/23}   
+    \label{tab:ExemploDeTabela5}
+    \source{Mercado Carboni, 2023}
+\end{table}
+\FloatBarrier
+A Variação Percentual Individual Semanal $VPIS$ pode ser calculada por meio de:
+\begin{equation}
+    VPIS= \frac{(VS_{i}-VS_{i-1})\cdot100}{VS_{i-1}}
+\end{equation}
+\smallskip
+\FloatBarrier
+Onde $VS$ indica Valor Semanal.
+\paragraph{\textbf{Exemplo 1:} Coxão de dentro.}
+\smallskip
+\begin{center}
+\renewcommand{\baselinestretch}{0.2} % Adjust the line spacing here
+\{$36,99$ , $29,99$ ,$\cdot\cdot\cdot $ , $29,99$\} = \{$VS_{0}$ , $VS_{1}$, $\cdot\cdot\cdot $,$VS_{5}$ \}
+\linebreak$VPIS (S_{0},S_{1})= \frac{(29,99-36,99)\cdot100}{36,99}$
+\linebreak
+$VPIS (S_{0},S_{1})\approx -18,92\%$
+\end{center}
+\FloatBarrier
+\begin{table}[hbtp]
+    
+    \begin{tabular}{p{2in} p{0.8in} p{0.8in} p{0.8in} p{0.8in} p{0.8in}} \hline
+    \centering Produto & \centering Semana 1 & \centering Semana 2 & \centering Semana 3 & \centering Semana 4 & Semana 5 \\ \hline
+    \centering Peito com osso & \centering \--- & \centering  \--- & \centering -10,53\% & \centering \--- &  11,78\% \\ 
+    \centering Paleta com osso & \centering \--- & \centering -9,01\% & \centering \--- & \centering \--- & -5,00\%\\ 
+    \centering Coxão de dentro & \centering \--- & \centering -18,92\% & \centering \--- & \centering \--- &  \---\\ 
+    \centering Paleta sem osso Gold Beef & \centering \--- & \centering -3,71\% & \centering \--- & \centering \--- & \---\\ 
+    \centering Músculo com osso & \centering \--- & \centering -5,55\% & \centering \--- & \centering\--- &  -5,89\%\\ \hline
+        
+    \end{tabular}
+    \centering \caption{Variação Percentual Individual Semanal no mês de agosto/23}   
+    \label{tab:ExemploDeTabela6}
+\end{table}
+\FloatBarrier
+
+\paragraph{}
+A Variação Percentual Individual Mensal($VPIM$), pode ser expressa por:
+\begin{equation}
+    VPIM = \frac{(VS_{n}-VS_{0})\cdot100}{VS_{n}}
+\end{equation}
+\paragraph{\textbf{Exemplo 2:} Músculo com osso.}
+\smallskip
+\begin{center}
+\renewcommand{\baselinestretch}{0.2}
+$VP_{IM} = \frac{(15,99-17,99)\cdot100}{17,99}$
+\linebreak
+$VPIM\approx -11,12\%$
+\end{center}
+\FloatBarrier
+\begin{table}[hbtp]
+    
+    \begin{tabular}{p{2in} p{0.8in} p{0.8in}} \hline
+    \centering Produto & \centering Semana 1 & Semana 4 \\ \hline
+    \centering Peito com osso & \centering \--- &  \---  \\ 
+    \centering Paleta com osso & \centering \--- & -13,64\% \\ 
+    \centering Coxão de dentro & \centering \--- & -18,92\% \\ 
+    \centering Paleta sem osso Gold Beef & \centering \--- & -3,71\%\\ 
+    \centering Músculo com osso & \centering \--- & -11,12\% \\ \hline
+        
+    \end{tabular}
+    \centering \caption{Variação Percentual Individual Mensal no período de agosto/23}   
+    \label{tab:ExemploDeTabela6}
+\end{table}
+\FloatBarrier
+
+\paragraph{}
+A Variação Percentual Conjunta Mensal($VPCM$) é dada pela média aritmética dos elementos de da coluna 2 da tabela 4:
+\begin{equation}
+    VPCM = \frac{1}{n}\sum_{i=1}^{n} VPIM_{i}
+\end{equation}
+\begin{center}
+    $VPCM \approx -9,48\%$
+\end{center}
+\paragraph{}
+Dessa maneira, também é possível associar a variação de preços a um Coeficiente de Variação ($CV$):
+\begin{center}
+\begin{equation}
+    CV = \frac{\sigma_{VPCM}}{VPCM} = \dfrac{\sqrt{\dfrac{\sum\limits_{i=1}^{n} (VPIM_{i}-VPCM)^2}{n}}}{VPCM}
+%CV = \sqrt{\frac{\sum_{i=1}^{n} (VP_{IM}-VP_{CM})^2}{n}}
+\end{equation}
+$CV = \dfrac{7,62}{-9,48} = -0,8\%$
+    
+\end{center}
+\paragraph{}
+Que por sua vez, corrobora com a pesquisa realizada pelo IBGE referente ao Índice de Preços do Consumidor Amplo (IPCA), realizado no mês de agosto/23. A figura 1 representa a variação encontrada pelo $CV$, na pesquisa realizada na cidade de Porto Alegre, que obteve queda de aproximadamente $1\%$ nos preços do grupo Alimentação e bebidas.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{poa.png}
+    \caption{Pesquisa sobre IPCA realizada pelo IBGE em agosto/23 em Porto Alegre}
+\end{figure}
+
+\chapter{Apresente um planejamento de dois períodos de aula, totalizando 1h50 min, para o 9º ano. Nesse planejamento deve constar uma explicação sobre inflação, associada a juros compostos, e no mínimo 5 exemplos contextualizados. As questões devem buscar responder "Como a inflação afeta a nossa vida?" e, se possível, "Como combater a inflação?".}
+
+\paragraph{}
+
+Este plano de aula consiste em mostrar para os alunos como podem realizar cálculos com o auxílio de ferramentas computacionais, por meio do aprendizado do conceito de inflação e juros.
+
+\paragraph{Materiais Necessários:}
+\begin{enumerate}
+    \item Uma sala para a disciplina de Matemática no Classroom;
+\item Contas pré-existentes para cada aluno no Classroom;
+\item Uma atividade chamada "Explorando juros com ferramentas computacionais" para ser entregue virtualmente até o final da aula;
+\item Computadores de uso comum na escola para desenvolvimento do trabalho preferencialmente individual ou em dupla;
+\item Computadores com softwares de edição de texto ou planilhas, como Microsoft Word ou Excel, Libreoffice Writer ou Calc, Google Docs ou Sheets;
+\item Acesso a uma calculadora online de juros simples e compostos , como \underline{\href{https://www.mobills.com.br/calculadoras/calculadora-juros-simples/}{esta}} e \underline{\href{https://www.mobills.com.br/calculadoras/calculadora-juros-compostos/}{esta}}, por exemplo;
+\end{enumerate}
+
+\paragraph{Aula:}
+
+Primeiramente, é necessário introduzir introduzir o tema da aula, com a apresentação da definição de inflação, esclarecendo com exemplos do cotidiano, como o preço de roupas, de produtos do supermercado ou de produtos eletrônicos têm flutuação ao longo do tempo. 
+
+Durante a apresentação, interagir com a turma com perguntas para autoreflexão, do tipo "Como pode a inflação afetar o meu dinheiro guardado?"; onde a resposta pode ser exemplificada com o episódio histórico do regulamento de preços durante o governo de Fernando Collor, onde o Estado tentou controlar a inflação no país. Após, demonstrar como nas compras realizadas, os juros afetam o valor de bens, em função do tempo, por meio da apresentação e aplicação das equações de juros simples e compostos; enfatizando que compras parceladas podem "parecer ter menor preço" mensalmente, porém é a maior razão de endividamento das famílias brasileiras.
+
+Após, dirigir a turma até a sala de informática da escola, onde cada aluno (ou dupla de alunos) deverá responder os seguintes questionamentos, e enviar o arquivo em uma atividade hospedada pelo Classroom até o final da aula:
+
+\begin{itemize}
+    \item[1.] O que são os juros?
+    \item[2.] Se você comprar um videogame novo por R\$4.000,00 e parcelar em 6 vezes, com parcelas de juros compostos de 3,35\% a.m., qual é o valor final do videogame?
+    \item[3.] Há muitos anos, vemos que o preço dos itens de consumo vêm mudado. Como por exemplo o refrigerante Coca-Cola de 2 Litros, que em agosto/2001 custava R\$1,96 e agora, em agosto/2023 custa R\$11,98. O que aconteceu para o valor do produto mudar?
+    \begin{table}[ht]
+    \label{tab:teste}
+    \centering
+    \begin{tabular}{*{3}{m{0.48\textwidth}}}
+    \begin{center}\includegraphics[width=0.17\textwidth]{nescau old.png} \end{center} & \begin{center}\includegraphics[width=0.25\textwidth]{nescau new.png}\end{center} \\
+    \end{tabular}
+    \end{table}
+    
+fonte: (https://www.catalogosofertas.com.br/lojas/supermercados-condor/ofertas/achocolatado-nescau-550g-oferta-26975837/)(https://aventurasnahistoria.uol.com.br/noticias/historia-hoje/nescau-por-r196-panfleto-de-2001-impressiona-internautas.phtml)
+    
+    \item[4.] Cite 4 quais maneiras das quais o governo do Brasil pode tentar conter a inflação.
+\end{itemize}
+
+\paragraph{Respostas}
+\begin{itemize}
+\item[1.] Taxa cobrada pelo uso do dinheiro emprestado ou pela posse de capital financeiro, da qual representa o custo do dinheiro ao longo do tempo e são geralmente é expressa como uma porcentagem do valor emprestado ou investido.
+\item[2.] Valor Final = $4.000 × (1 + 0,0335)^6 \approx R\$4.828,36$
+
+\item[3.] Inflação, custos de produção, demanda e oferta, estratégias de preços da empresa.
+\item[4.]  Política Monetária,  Política Fiscal, Controle de Preços, Política Cambial.
+\end{itemize}
+
+\paragraph{}
+A avaliação pode ser atribuída com base na resposta correta da questão 2 e na criatividade ou assertividade nas questões 1, 3 e 4, com a pontuação apropriada para cada trimestre do período letivo da disciplina.
+
+\chapter{Eu peguei R\$ 100,00 emprestados com um amigo, prometendo pagar 2\% a.m, a juros compostos, depois de 6 meses. A inflação nesses 6 meses foi de 1,5\%, 2\%, 1,7\%, 2,5\%, 3\% e 1,8\%. Qual é o valor que retornarei ao meu amigo? O poder de compra do valor que retornei ao meu amigo é maior ou menor do que o poder de compra dos R\$ 100,00 que eu peguei emprestado 6 meses antes? Justifique.}
+
+Ao realizar o empréstimo, o valor devido acrescido de juros compostos ($VD$), após 6 meses, é calculado conforme (5):
+
+\begin{equation}
+    VD = V_{0}\left(1+\dfrac{J}{100}\right)^t
+\end{equation}
+\paragraph{}
+Onde $J$ indica a taxa de juros, e $t$, o tempo de aplicação do capital $V_{0}$. Portanto,
+\begin{center}
+$
+    VD = 100\left(1+\dfrac{2}{100}\right)^6 \notag
+    \linebreak
+$                                                                   
+\end{center}
+\begin{center}
+    $VD = R\$ 112,62$
+\end{center}
+       
+
+A Inflação Acumulada pode ser calculada a partir de (5), agora, considerando $J$ um conjunto finito de $n$ elementos onde $j_{0}\neq j_{1}\neq j_{2}\cdot\cdot\cdot \neq j_{n}$,
+\begin{center}    
+$VD = V_{0}\left(1+\dfrac{J}{100}\right)^t = V_{0}\cdot((1+\dfrac{j_{0}}{100})\cdot(1+\dfrac{j_{1}}{100})\cdot\cdot\cdot\underbrace{(1+\dfrac{j_{n}}{100}}_\text{t vezes})-1)$
+\end{center}
+Assim, a Inflação Acumulada ($Ic$),
+\begin{equation}
+Ic = \prod\limits_{i=1}^{t} (1+\frac{j_{i}}{100})
+\end{equation}
+quando somada a $1$ e multiplicada por $VD$, nos fornece o Valor Corrigido Devido ($VCD$)
+\begin{equation}
+    VCD = VD\cdot (1 + Ic)
+\end{equation}
+\begin{center}
+$VCD = 112,62\cdot (1 + 0,1316) = R\$127,44$
+\end{center}
+
+E o valor do poder de compra dos R\$100,00 emprestados 6 meses antes ($V_{6}$) é dado por:
+
+\begin{equation}
+   V_{n}=\frac{V_{0}}{(1 + Ic)}
+\end{equation}
+\begin{center}
+    $V_{6} = \dfrac{100}{(1+0,1316)} = R\$88,37$ 
+\end{center}
+
+\paragraph{Conclusão:}
+
+O valor a ser retornado a seu amigo é de R\$127,44. Valor do qual têm poder de compra maior do que o valor original emprestado, visto que esse possui acréscimo de juros compostos estabelecidos no ato do empréstimo.
+
+Os resultados acima podem ser expressos pelo seguinte código desenvolvido em Python, de autoria própria, disponível neste \href{https://github.com/regularcastro/matematicaplicada/blob/main/desafio_progressoes_set_23.py}{\underline{link}}:
+
+\begin{lstlisting}[caption={Código em Python utilizado para solução do Desafio}]
+def desafio_progressoes():
+    v_emprestado=100
+    juros_sem_posto=0.02
+    inflacao_mensal=[0.015,0.02,0.017,0.025,0.03,0.018]
+    emprestimo_devido=v_emprestado*(1+juros_sem_posto)**(len(inflacao_mensal))
+    print(f'Emprestimo devido (sem correcao): R$ {round(emprestimo_devido,2)}')
+    neutro=1
+    for i in inflacao_mensal:
+        neutro*=(i+1)
+    inflacao_acumulada=(neutro-1)
+    print(f'Inflacao acumulada no periodo: {round(inflacao_acumulada*100,2)}%')
+    print(f'Poder de compra do emprestimo apos 6 meses: R$ {round(v_emprestado/(1+inflacao_acumulada),2)}')
+    print(f'Valor final devido: R$ {round(emprestimo_devido*(1+inflacao_acumulada),2)}')
+desafio_progressoes()
+\end{lstlisting}
+
+\chapter{Ao fazer um financiamento com um banco, suponha que o banco cobre uma taxa de operação fixada, cobrada uma única vez, e mais 2\% ao mês, capitalizados através de juros compostos. Veja que o banco precisa se assegurar caso a inflação suba acima de 2\% a.m., pois o seu dinheiro emprestado poderia perder valor. De que forma os bancos costumam se assegurar para que o capital financiado não perca valor? }
+
+\paragraph{}
+
+Os bancos podem utilizar diversos métodos para assegurar que o capital não perca valor. Quando um empréstimo é solicitado, um contrato descreve quais índices são utilizados como referência para adequação à inflação no país. Índices como por exemplo: IPCA, Taxa Selic, Taxa Referencial, entre outros, que são aplicados periodicamente, por meio de atualizações de contrato.
+
+\postextual
+\chapter{Referencias}
+\begin{itemize}
+\item CONDOR. Catálogos e Ofertas. "Preço representativo Nescau 500g". Curitiba, PR: Catálogos e Ofertas, 2023. Disponível em: https://www.catalogosofertas.com.br/lojas/\linebreak supermercados-condor/ofertas/achocolatado-nescau-550g-oferta-26975837/. Acesso em: 26 set. 2023.
+\linebreak
+\item REDAÇÃO. Aventuras na História. "Biscoito por 0,59: Panfleto de 2001 impressiona internautas". Local não identificado: Aventuras na História, 2022. Disponível em: 
+ \linebreak https://aventurasnahistoria.uol.com.br/noticias/historia-hoje/nescau-por-r196-panfleto-de-2001-impressiona-internautas.phtml. Acesso em: 26 set. 2023.
+\linebreak
+\item MOBILIS. Mobilis. Calculadora de Juros Simples. Local não identificado: Mobilis, Ano não identificado. Disponível em:  https://www.mobills.com.br/calculadoras/calculadora-juros-simples/. Acesso em: 25 set. 2023.
+\linebreak
+\item MOBILIS. "Calculadora de Juros Compostos". Local não identificado: Mobilis, Ano não identificado. Disponível em: https://www.mobills.com.br/calculadoras/calculadora-juros-compostos/. Acesso em: 25 set. 2023.
+\linebreak
+\item PENA, Rodolfo F. Alves. "O que é inflação?"; Brasil Escola. Disponível em:  https://brasil\linebreak escola.uol.com.br/o-que-e/geografia/o-que-e-inflacao.htm. Acesso em 27 de setembro de 2023.
+\linebreak
+\item RIZZO, Maria Luiza Alves. "Coeficiente de variação"; Brasil Escola. Disponível em: https://brasilescola.uol.com.br/matematica/coeficiente-variacao.htm. Acesso em 27 de setembro de 2023.
+\linebreak
+\item SILVA, Marcos Noé Pedro da. "Taxa de Juros Acumulada "; Brasil Escola. Disponível em:  https://brasilescola.uol.com.br/matematica/taxa-juros-acumulada.htm. Acesso em 27 de setembro de 2023.
+\linebreak
+\item CARBONI PINHEIRO, Mercado. Preço de produtos no período ago-set/2023. Porto Alegre, 2 ago. 2023. Instagram: @carbonipinheiro. Disponível em:  https://www.instagram.com/\linebreak carbonipinheiro/. Acesso em: 25 set. 2023.
+\end{itemize}
+
+\end{document}
