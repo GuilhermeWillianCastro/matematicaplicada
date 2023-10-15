@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\begin{document}
+\tdplotsetmaincoords{60}{135}
+\begin{tikzpicture}[scale=5,tdplot_main_coords]
+    \coordinate (O) at (0,0,0);
+    \draw[thick,->] (0,0,0) -- (2,0,0) node[anchor=north east]{\LARGE $x$};
+    \draw[thick,->] (0,0,0) -- (0,2,0) node[anchor=north west]{\LARGE $y$};
+    \draw[thick,->] (0,0,0) -- (0,0,2) node[anchor=south]{\LARGE $z$};
+            
+    \fill[black] (O) circle (0.4pt);
+    \filldraw[draw=black, fill=white!10, opacity=1, dashed] (2,0) -- (2,2) -- (0,2);
+    
+    % topppp square
+    \coordinate (A) at (0.35,0.7,0.1);
+    \coordinate (B) at (0.5,0.7,0.1);
+    \coordinate (C) at (0.5,1,0.1);
+    \coordinate (D) at (0.35,1,0.1);
+    
+    % bottommmm square
+    \coordinate (A') at (0.35,0.7,0);
+    \coordinate (B') at (0.5,0.7,0);
+    \coordinate (C') at (0.5,1,0);
+    \coordinate (D') at (0.35,1,0);
+    
+    % topppp square
+    \coordinate (E) at (1.3,0.7,0.1);
+    \coordinate (F) at (1.5,0.7,0.1);
+    \coordinate (G) at (1.5,1,0.1);
+    \coordinate (H) at (1.3,1,0.1);
+
+    % bottommmm square
+    \coordinate (E') at (1.5,0.7,0);
+    \coordinate (F') at (1.5,0.7,0);
+    \coordinate (G') at (1.5,1,0);
+    \coordinate (H') at (1.3,1,0);
+
+    
+    \filldraw[draw=black,fill=white,opacity=0] (A) -- (B) -- (B') -- (A') -- cycle;
+    \filldraw[draw=black,fill=white,opacity=1] (B) -- (C) -- (C') -- (B') -- cycle;
+    \filldraw[draw=black,fill=white,opacity=1] (C) -- (D) -- (D') -- (C') -- cycle;
+    \filldraw[draw=black,fill=white,opacity=1] (D) -- (C) -- (D) -- (C) -- cycle;
+    
+    \filldraw[draw=black,fill=white,opacity=0] (E) -- (F) -- (F') -- (E') -- cycle;
+    \filldraw[draw=black,fill=white,opacity=1] (F) -- (G) -- (G') -- (F') -- cycle;
+    \filldraw[draw=black,fill=white,opacity=1] (G) -- (H) -- (H') -- (G') -- cycle;
+    \filldraw[draw=black,fill=white,opacity=1] (H) -- (G) -- (H) -- (G) -- cycle;
+
+    \filldraw[draw=blue,fill=blue!10,opacity=0.5] (0,0,0.1)
+            -- (2,0,0.1)
+            -- (2,2,0.1)
+            -- (0,2,0.1)
+            -- cycle;
+    
+    % Draw the bottom hexagon
+    \filldraw[draw=black, fill=black, opacity=0.5] (A) -- (B) -- (C) -- (D) -- cycle;
+    
+    \filldraw[draw=black, fill=black, opacity=0.5] (E) -- (F) -- (G) -- (H) -- cycle;
+
+    \draw[thick,->] (0.5,2,0) -- (0.5,2,0.1) node[midway, right, yshift=-0.2cm] {\large $h$};
+    
+    \fill[black] (O) circle (0.4pt);
+    
+\node[anchor=east] at (0,0,0.02) {\large \textbf{$O$}};
+
+\node[anchor=east] at (0.25,1.09,0) {\large \textbf{$\Delta_{1}$}};
+
+\node[anchor=east] at (1.3,1.2,0.1) {\large \textbf{$\Delta_{2}$}};
+
+\node[anchor=east] at (0.2,1.93,0.1) {\LARGE \textbf{$\pi$}};
+
+\end{tikzpicture}
+\end{document}
