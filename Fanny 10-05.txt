@@ -1,0 +1,73 @@
+\documentclass[portrait]{ppgcaposter}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\begin{document}
+\begin{center}
+\textbf{\bf\veryHuge\color{Black}Matemática Aplicada I\\[1.5cm]}
+\huge Guilherme Willian Castro\\[0.3cm]
+\Large {castro.ethng@gmail.com}
+\end{center}
+\vspace{2cm}
+\Large
+\begin{center}
+\LARGE{\textbf{Resumo}} \linebreak
+\LARGE {Este artigo apresenta uma análise vetorial sobre a habilidade "Cabos de Aço" da personagem Fanny do jogo Mobile Legends, para fins educativos.}
+\end{center}
+\begin{multicols}{2}
+\color{black}
+\section*{Introdução}
+Mobile Legends é um popular jogo MOBA lançado pela Shangai Moonton Technology em 2016. Nele, dois times de 5 jogadores competem para destruir a base inimiga, usando estratégia e trabalho em equipe, onde cada jogador controla um campeão com habilidades únicas e papéis específicos. A campeã Fanny é uma personagem notável por sua agilidade pelo mapa do jogo com a habilidade "Cabos de Aço", que utiliza conceitos de álgebra vetorial para ser executada.
+\begin{center}
+\includegraphics[width=0.5\linewidth]{test3.jpg}
+\captionof{figure}{\color{Black}Fanny executando "Cabos de Aço"}
+\end{center}
+\section{Metodologia}
+Considere o sistema de coordenadas $Oxyz$ de eixos ortogonais. Um plano $\pi$ é definido como estando alinhado com os semi-eixos $+x$ e $+y$, localizado a uma distância $h$, em $+z$. Adicionalmente, considere um conjunto de finitos polígonos regulares $\Delta_{i}$ distribuídos sobre a origem $xOy$, ortogonais e paralelos a $\pi$, de altura $l$, onde $h \leq l$. Os planos $\delta_{ik}$ contidos em $\Delta_{i}$ juntamente com as interseções $\delta_{ik}\cap \pi$, delimitam a zona de colisão dos objetos no mapa do jogo.
+
+\begin{center}\vspace{1cm}
+\includegraphics[width=0.8\linewidth]{falt.png}
+\captionof{figure}{\color{Black} Sistema $Oxyz$ e elementos.}
+\end{center}\vspace{1cm}
+
+"Cabos de Aço" pode ser representada por uma circunferência $C$, de raio $r$ e centro $P_{n}$ em $\pi$. Para todo evento de cabo de aço  $k_{1},k_{2},k_{3}...k_{n}$, há um vetor diretor $\vec{v_{1}},\vec{v_{2}},\vec{v_{3}}...\vec{v_{n}}$, ortogonal a $z$, de origem na posição $P_{n}$ de Fanny em direção a algum ponto $p_{n}$ no infinito $xy$. De sorte que $\Delta_{i}\subset C$, e $v_{i} \cap \delta_{ik}$, então $||v_{i}||\leq r$ e
+\begin{center}
+$P_{n+1} \approx \vec{v_{i}}(x_{i},y_{i}) \cap \delta_{ni}(x_{i},y_{i}) \pm \Delta_{F}(l/2,l/2)$
+\end{center}
+
+\begin{center}\vspace{1cm}
+\includegraphics[width=0.5\linewidth]{test.jpg}
+\captionof{figure}{\color{Black} Plano $\pi$ e vetor $\vec{v_{i}}$ em interseção com $\delta_{ni}$.}
+\includegraphics[width=0.5\linewidth]{test2.jpg}
+\captionof{figure}{\color{Black} $P_{n+1}$ quando $v_{i} \cap \delta_{ni}$.}
+\end{center}\vspace{1cm}
+
+considerando a caixa de colisão $\Delta_{F}$ de Fanny como um cilindro de diâmetro $l$ e comprimento infinito.
+
+ Em outro caso, se $v_{i}  \subset\!\!\!\!\!/$ $\delta_{ik}$ ou $\Delta_{i}\subset\!\!\!\!\!/$ $C$, então
+ \begin{center}
+     $P_{n+1}=P_{n}$
+ \end{center}
+
+ \begin{center}\vspace{1cm}
+\includegraphics[width=0.5\linewidth]{yeet.png}
+\captionof{figure}{\color{Green} Lorem Ipsum.}
+\end{center}\vspace{1cm}
+
+\begin{center}
+\begin{tikzpicture}
+\filldraw[color=black!60, fill=white!5, very thick](-1,0) circle (6);
+\draw (0,0) -- (5,0);
+\draw[color=black, thick, dotted] (0,0) -- (5,1);
+\begin{scope}[line join=miter]
+    \node at (0,1) {$P$};
+    \node at (3,1) {$r$};
+    \node at (6,1) {$P_{k}$};
+    \fill (5,1) circle (7pt);
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+%\end{tikzpicture}
+\end{multicols}
+ \end{document}
