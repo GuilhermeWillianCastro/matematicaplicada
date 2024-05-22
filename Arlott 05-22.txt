@@ -1,0 +1,35 @@
+\documentclass[portrait]{ppgcaposter}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\begin{document}
+\begin{center}
+\textbf{\bf\veryHuge\color{Black}Análise Vetorial - Arlott\\[1.5cm]}
+\huge Guilherme Willian Castro\\[0.3cm]
+\Large {https://github.com/regularcastro/matematicaplicada.git \linebreak Versão 22/05/2024}
+\end{center}
+\vspace{2cm}
+\Large
+\begin{center}
+\LARGE{\textbf{Resumo}} \linebreak
+\LARGE {Este artigo apresenta uma análise vetorial sobre a habilidade "Cabos de Aço" da personagem Arlott do jogo Mobile Legends, para fins educativos.}
+\end{center}
+\begin{multicols}{2}
+\color{black}
+\section*{Introdução}
+Mobile Legends é um popular jogo MOBA lançado pela Shangai Moonton Technology em 2016. Nele, dois times de 5 jogadores competem para destruir a base inimiga, usando estratégia e trabalho em equipe, onde cada jogador controla um campeão com habilidades únicas e papéis específicos. O campeão Arlott é uma personagem cuja função é iniciar confrontos diretos contra o inimigo, destacando-se com sua habilidade "ult", que utiliza conceitos de campos vetoriais para ser executadX.
+\begin{center}
+\includegraphics[width=0.5\linewidth]{test3.jpg}
+\captionof{figure}{\color{Black}Fanny executando "Cabos de Aço"}
+\end{center}
+\section{Metodologia}
+Considere o sistema de coordenadas $Oxyz$ de eixos ortogonais. Um plano $\pi$ é definido como estando alinhado com os semi-eixos $+x$ e $+y$, localizado a uma distância $h$, em $+z$. Adicionalmente, considere um conjunto de finitos polígonos regulares $\Delta_{i}$ distribuídos sobre a origem $xOy$, ortogonais e paralelos a $\pi$, de altura $l$, onde $h \leq l$. Os planos $\delta_{ik}$ contidos em $\Delta_{i}$ juntamente com as interseções $\delta_{ik}\cap \pi$, delimitam a zona de colisão dos objetos no mapa do jogo.
+
+\begin{center}\vspace{1cm}
+\includegraphics[width=0.8\linewidth]{falt.png}
+\captionof{figure}{\color{Black} Sistema $Oxyz$ e elementos.}
+\end{center}\vspace{1cm}
+
+\end{multicols}
+ \end{document}
