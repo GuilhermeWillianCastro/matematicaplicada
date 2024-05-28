@@ -1,0 +1,67 @@
+\documentclass[portrait]{ppgcaposter}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\begin{document}
+\begin{center}
+\textbf{\bf\veryHuge\color{Black}Análise Vetorial - Arlott\\[1.5cm]}
+\huge Guilherme Willian Castro\\[0.3cm]
+\Large {https://github.com/regularcastro/matematicaplicada.git \linebreak Versão 22/05/2024}
+\end{center}
+\vspace{2cm}
+\Large
+\begin{center}
+
+\LARGE{\textbf{Resumo}} \linebreak
+\LARGE {Este artigo apresenta uma análise vetorial sobre a habilidade "Final Slash" do personagem Arlott do jogo Mobile Legends, para fins educativos.}
+\end{center}
+\begin{multicols}{2}
+\color{black}
+\section*{Introdução}
+
+Mobile Legends é um popular jogo MOBA lançado pela Shangai Moonton Technology em 2016. Nele, dois times de 5 jogadores competem para destruir a base inimiga, usando estratégia e trabalho em equipe, onde cada jogador controla um campeão com habilidades únicas e papéis específicos. O campeão Arlott é uma personagem cuja função é iniciar confrontos diretos contra o inimigo, destacando-se com sua habilidade "Final Slash", que utiliza conceitos de álgebra linear e campos vetoriais para ser executada.
+
+\begin{center}
+\includegraphics[width=0.5\linewidth]{test3.jpg}
+\captionof{figure}{\color{Black}Fanny executando "Final Slash"}
+\end{center}
+\section{Metodologia}
+
+Considere \textbf{$S_{A}$} o sistema de coordenadas primário $OXYZ$ de eixos ortogonais, conhecido por ser o usado pelos heróis para movimentar-se sobre o mapa do jogo. A fim de representar a posição de Arlott e dos os outros personagens, estes receberão e a denominação universal $P,P_{1}...P_{n}$ ligados aos pares ($x_{q},y_{q}$).
+
+A habilidade "Final Slash" pode ser representada geometricamente por um arco de circunferência $C$ de raio $r$ e amplitude angular $\alpha$ ligados à posição e orientação de Arlott em um subespaço \textbf{$S_{B}$} em \textbf{$S_{A}$}. Assim, os elementos e pares ordenados contidos em \textbf{$S_{B}$} serão representados por $P',P'_{1}...P'_{n}$ e ($x'_{q},y'_{q}$) respectivamente. Ou seja, a representação da posição dos objetos em relação a Arlott (\textbf{$S_{B}$}) possuem nomes e endereços distintos a fim de não confundi-los com os de \textbf{$S_{A}$}.
+
+Assim, quando a habilidade é iniciada, a partir da visualização do jogador, é possível determinar o sistema de coordenadas responsável por
+
+<Função condicional>
+
+arco de circunferência determina uma região da qual \textbf{$S_{B}$} estará posicionado. E todos os personagens contidos nessa região têm suas coordenadas em \textbf{$S_{B}$} gravada. O deslocamento angular é determinado por uma transformação linear no $\mathbb{R}^2$, onde a matriz de rotação sobre Z
+\begin{center}
+\[
+R_{\theta}=
+\begin{bmatrix}
+    cos(-\frac{2\pi}{3}) & -sen(-\frac{2\pi}{3}) & 0 & \\
+    sen(-\frac{2\pi}{3}) & cos(-\frac{2\pi}{3}) & 0 \\
+    0 & 0 & 1 \\
+\end{bmatrix}
+\]
+\end{center}
+
+será responsável por determinar as novas coordenadas dos P objetos contidos na área A. 
+
+
+Mais especificamente, "Final Slash" define-se por um campo vetorial no $\mathbb{R}^2$, definido pelos limites de C, onde os objetos dentro de sua área são movidos em sentido único, sob uma velocidade angular $\theta$ até a posição final declarada.
+
+\begin{center}\vspace{1cm}
+\includegraphics[width=0.8\linewidth]{falt.png}
+\captionof{figure}{\color{Black} Sistema $Oxyz$ e elementos.}
+\end{center}\vspace{1cm}
+
+determinação do angulo a percorrer do ponto a em função da interseção dos vetores da distãncia entre A e r. calcular o arco de círculo e o ângulo para rotação a partir disso.
+
+fixação da distancia entre os pontos AB, permitindo apenas a rotação destes no espaço em função do angulo sobre uma reta. imitando a movimentação da animaçação da mira do personagem no plano do mapa.
+
+\end{multicols}
+ \end{document}
